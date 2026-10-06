@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+/* Hide browser video overlay toolbars and buttons */
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-overlay-enclosure {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+@layer base {
+  :root {
+    --font-pixel: 'Silkscreen', monospace;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html,
+  body {
+    background-color: #131313;
+    color: #e5e5e5;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 100vw;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    max-width: 100vw;
+    width: 100%;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+.font-silkscreen {
+  font-family: 'Silkscreen', monospace;
+}
+
+.font-jersey {
+  font-family: 'Jersey 10', 'Silkscreen', monospace;
+}
+
+.font-pixel {
+  font-family: 'Jersey 10', 'Pixelify Sans', 'Silkscreen', monospace;
+  letter-spacing: 0.08em;
+}
+
+.font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-cs-engineer {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.55em;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-inter {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-jaro {
+  font-family: 'Jaro', sans-serif;
+  font-weight: 400;
+}
+
+/* Custom subtle scrollbar (vertical only) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 0px !important;
+}
+
+::-webkit-scrollbar:horizontal {
+  display: none !important;
+  height: 0px !important;
+  opacity: 0 !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+/* Red glow and hover effects matching design */
+.red-pill-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.red-pill-hover:hover {
+  border-color: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-right {
+  animation: marqueeRight 75s linear infinite;
+  animation-play-state: running;
+  will-change: transform;
+}
+
+.marquee-container:hover .animate-marquee-right,
+.animate-marquee-right:hover,
+.animate-marquee-right span:hover {
+  animation-play-state: paused !important;
+}
+

@@ -1,0 +1,48 @@
+<svg viewBox="0 0 99 99" width="99" height="99" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="docsBezel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#737373" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#171717" stop-opacity="0.4" />
+    </linearGradient>
+    <mask id="clipboardMask">
+      <!-- White base: everything visible -->
+      <rect width="99" height="99" fill="white" />
+      
+      <!-- Black cutouts: will become transparent -->
+      <!-- 1. Hole at top clip -->
+      <circle cx="49" cy="28.5" r="2.2" fill="black" />
+      
+      <!-- 2. Text line 1 -->
+      <rect x="37" y="37.5" width="24" height="4.2" rx="0.5" fill="black" />
+      
+      <!-- 3. Text line 2 -->
+      <rect x="37" y="47" width="24" height="4.2" rx="0.5" fill="black" />
+      
+      <!-- 4. Text line 3 (shorter) -->
+      <rect x="37" y="56.5" width="16.5" height="4.2" rx="0.5" fill="black" />
+    </mask>
+  </defs>
+
+  <!-- 1. Deep Black Squircle Body with subtle bezel outline -->
+  <rect
+    x="0.75"
+    y="0.75"
+    width="97.5"
+    height="97.5"
+    rx="27"
+    ry="27"
+    fill="#000000"
+    stroke="url(#docsBezel)"
+    stroke-width="1.2"
+  />
+
+  <!-- 2. Clipboard Icon Group with Masked Cutouts -->
+  <g mask="url(#clipboardMask)" fill="#d1d1d1">
+    <!-- Main Clipboard Body -->
+    <rect x="27" y="28" width="44" height="43" rx="6" />
+    
+    <!-- Top Clip Arch / Tab -->
+    <path d="M 42 28.5 C 42 24.5, 45 22.5, 49 22.5 C 53 22.5, 56 24.5, 56 28.5 Z" />
+  </g>
+</svg>
