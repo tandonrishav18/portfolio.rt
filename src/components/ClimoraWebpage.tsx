@@ -232,7 +232,7 @@ export const ClimoraWebpage: React.FC<ClimoraWebpageProps> = ({
           decoding="sync" 
         />
         <img 
-          src="/IMPA.PNG" 
+          src="/impa.png" 
           alt="" 
           loading="eager" 
           decoding="sync" 
@@ -505,7 +505,7 @@ export const ClimoraWebpage: React.FC<ClimoraWebpageProps> = ({
             <div className="w-full max-w-[488px] flex-1 min-h-[260px] md:min-h-0 relative overflow-hidden bg-[#0d0e11] rounded-none border-0 shadow-none">
               <img 
                 id="impact-image"
-                src="/IMPA.PNG"
+                src="/impa.png"
                 alt="Sustainable Climate Impact & UN SDGs"
                 referrerPolicy="no-referrer"
                 onError={(e) => {

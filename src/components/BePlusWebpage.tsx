@@ -140,11 +140,19 @@ export const BePlusWebpage: React.FC<BePlusWebpageProps> = ({
 
     if (totalScrollDistance > 0) {
       const scrolledIntoSticky = stickyTop - relativeTop;
-      // Second image slides up smoothly as user scrolls through the sticky section
-      const activeRange = totalScrollDistance;
-      const progress = Math.min(Math.max(scrolledIntoSticky / activeRange, 0), 1);
+      // Add hold ratio so first image B11 stays cleanly in view before B12 starts overlaying
+      const holdRatio = 0.22;
+      const holdDistance = totalScrollDistance * holdRatio;
+      const activeRange = totalScrollDistance - holdDistance;
       
-      const translateYPercent = (1 - progress) * 100;
+      let progress = 0;
+      if (scrolledIntoSticky > holdDistance && activeRange > 0) {
+        progress = Math.min(Math.max((scrolledIntoSticky - holdDistance) / activeRange, 0), 1);
+      }
+      
+      // Smoothstep easing for a luxurious, slow, and cinematic overlay transition
+      const easedProgress = progress * progress * (3 - 2 * progress);
+      const translateYPercent = (1 - easedProgress) * 100;
       card.style.transform = `translate3d(0, ${translateYPercent.toFixed(2)}%, 0)`;
     } else {
       card.style.transform = 'translate3d(0, 100%, 0)';
@@ -718,7 +726,7 @@ export const BePlusWebpage: React.FC<BePlusWebpageProps> = ({
         {/* 8. Antigravity IDE Showcase: Sticky Stacking Overlay (B11 & B12) - Dimensions 1313x738 */}
         <div 
           ref={stickySectionRef}
-          className="relative w-full max-w-[1313px] h-[135vh] sm:h-[145vh] md:h-[150vh] mb-0 select-none"
+          className="relative w-full max-w-[1313px] h-[260vh] sm:h-[280vh] md:h-[300vh] mt-8 sm:mt-12 md:mt-16 mb-0 select-none"
         >
           {/* Sticky Pin Frame */}
           <div className="sticky top-6 sm:top-8 md:top-12 w-full flex justify-center z-10">
@@ -728,7 +736,7 @@ export const BePlusWebpage: React.FC<BePlusWebpageProps> = ({
             >
               {/* Base Image: B11 (Project Structure, Explorer and Workspace) - Sticks firmly in place */}
               <img 
-                src="/B11.png" 
+                src="/b11.png" 
                 alt="Be+ Project Structure, Explorer and Workspace (B11)" 
                 className="absolute inset-0 w-full h-full object-cover block select-none rounded-none z-10"
               />
@@ -740,7 +748,7 @@ export const BePlusWebpage: React.FC<BePlusWebpageProps> = ({
                 style={{ transform: 'translate3d(0, 100%, 0)' }}
               >
                 <img 
-                  src="/B12.png" 
+                  src="/b12.png" 
                   alt="Be+ Streamlit Application Interface and Code Execution (B12)" 
                   className="w-full h-full object-cover block select-none rounded-none"
                 />

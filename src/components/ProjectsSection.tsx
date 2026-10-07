@@ -897,7 +897,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                 className="h-[340px] sm:h-[400px] md:h-full lg:w-[187px] lg:h-[385px] group cursor-pointer transition-transform duration-300 hover:scale-[1.02] select-none flex items-center justify-center shrink-0 pointer-events-auto shadow-none"
               >
                 <img
-                  src="/Moc.png?v=2"
+                  src="/moc.png?v=2"
                   alt="Be+ Experience Mockup"
                   className="h-full w-auto object-contain block select-none shadow-none drop-shadow-none filter-none"
                 />

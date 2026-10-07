@@ -399,7 +399,7 @@ export const PUBLICATIONS: PublicationItem[] = [
       "Hybrid spatial KNN neighbor correlation and temporal statistical deviation",
       "Validated across multi-station geospatial atmospheric sensor grids"
     ],
-    pdfUrl: "/Paper2.pdf"
+    pdfUrl: "/paper2.pdf"
   },
   {
     id: "pub-dental-yolo",
